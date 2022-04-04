@@ -154,5 +154,6 @@ shape = SubResource( 32 )
 position = Vector2( 5, -30 )
 frames = SubResource( 11 )
 animation = "attack"
+frame = 2
 speed_scale = 3.0
 playing = true
