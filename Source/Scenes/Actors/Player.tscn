@@ -1,10 +1,11 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Ressources/Sprites/Player/Colour2/Outline/120x80_PNGSheets/_Run.png" type="Texture" id=1]
 [ext_resource path="res://Ressources/Sprites/Player/Colour2/Outline/120x80_PNGSheets/_Idle.png" type="Texture" id=2]
 [ext_resource path="res://Source/Scripts/Actors/Player.gd" type="Script" id=3]
 [ext_resource path="res://Ressources/Sprites/Player/Colour2/Outline/120x80_PNGSheets/_Jump.png" type="Texture" id=4]
 [ext_resource path="res://Ressources/Sprites/Player/Colour2/Outline/120x80_PNGSheets/_Attack.png" type="Texture" id=5]
+[ext_resource path="res://Source/Scenes/Entities/Attack.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=32]
 extents = Vector2( 10.5, 19 )
@@ -141,7 +142,9 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 10
 script = ExtResource( 3 )
+attack = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, -9 )
@@ -151,6 +154,5 @@ shape = SubResource( 32 )
 position = Vector2( 5, -30 )
 frames = SubResource( 11 )
 animation = "attack"
-frame = 1
 speed_scale = 3.0
 playing = true

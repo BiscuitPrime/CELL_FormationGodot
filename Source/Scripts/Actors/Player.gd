@@ -7,6 +7,8 @@ onready var anim = $AnimatedSprite
 var facing :=false
 var is_attacking
 
+export (PackedScene) var attack;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.animation="idle"
@@ -70,9 +72,16 @@ func skills():
 	pass
 
 func attack():
+	var new_attack = attack.instance()
 	is_attacking=true
 	anim.animation="attack"
 	anim.play()
+	if(facing):
+		new_attack.position=get_global_position() + Vector2(-50,-10)
+	else:
+		new_attack.position=get_global_position() + Vector2(50,-10)
+	get_parent().add_child(new_attack)
 	yield(anim,"animation_finished")
+	new_attack.queue_free()
 	is_attacking=false
 	pass
