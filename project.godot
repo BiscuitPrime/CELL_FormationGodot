@@ -8,16 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "Actors",
-"language": "GDScript",
-"path": "res://Source/Scripts/Actors/Actors.gd"
-} ]
-_global_script_class_icons={
-"Actors": ""
-}
-
 [application]
 
 config/name="CELL - Formation Godot"
